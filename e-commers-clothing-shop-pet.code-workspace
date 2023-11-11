@@ -16,8 +16,6 @@
     "recommendations": [
       "esbenp.prettier-vscode",
       "dbaeumer.vscode-eslint",
-      "sibiraj-s.vscode-scss-formatter",
-      "adamwalzer.scss-lint",
       "dsbasko.create-component-helper"
     ]
   },
