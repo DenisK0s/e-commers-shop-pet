@@ -1,7 +1,7 @@
 import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  dir: "./src",
+  dir: "./app",
 });
 
 /** @type {import('jest').Config} */
