@@ -16,7 +16,8 @@
     "recommendations": [
       "esbenp.prettier-vscode",
       "dbaeumer.vscode-eslint",
-      "dsbasko.create-component-helper"
+      "dsbasko.create-component-helper",
+      "bradlc.vscode-tailwindcss"
     ]
   },
   "launch": {
