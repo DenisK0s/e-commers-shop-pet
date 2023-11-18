@@ -1,3 +1,5 @@
+"use client"
+
 import React, { FC } from "react";
 import { {{pascalCase}}Props } from ".";
 import styles from "./{{pascalCase}}.module.css";
