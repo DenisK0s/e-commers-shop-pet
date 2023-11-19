@@ -15,7 +15,64 @@
   npx husky add .husky/pre-commit "npm run lint-staged"
 ```
 
-#### recommendet git aliases
+#### recommendet git aliases:
+
+```
+git config --global alias.pl 'git pull'
+git config --global alias.ps 'git push'
+git config --global alias.br 'git branch'
+git config --global alias.st 'git status'
+git config --global alias.co 'git checkout'
+git config --global alias.nb 'git checkout -b'
+git config --global alias.md 'git merge develop'
+git config --global alias.btp 'git checkout @{-1}'
+git config --global alias.home 'git checkout develop'
+git config --global alias.md '!git checkout - && git merge'
+
+```
+
+- git config —global —list -> to check whole aliases list use
+- git config --global --unset -> to remove alias from the list
+- to override an existing alias, simply enter the same alias name but with a different command
+
+#### recommendet bash scripts
+
+1. download and install the latest git bash - (https://gitforwindows.org/)
+2. open it and create .bashrc file
+
+```
+touch ~/.bashrc
+
+```
+
+This will create the file in C:\Users\YOUR-USERNAMEdirectory.
+
+3. open .bashrc
+
+```
+code ~/.bashrc
+
+```
+
+4. add the following function
+
+```
+commit() {
+  read -p "type: " type
+  read -p "source (press Enter if none): " source
+  read -p "description: " msg
+
+  if [ -n "$source" ]; then
+      git commit -m "$type($source): $msg"
+  else
+      git commit -m "$type: $msg"
+  fi
+}
+
+```
+
+5. set bash as a default shell
+   open the Terminal dropdown (next to the + icon) and select Select Default Profile
 
 ---
 
@@ -46,6 +103,8 @@
 ---
 
 ## Rules and conventions
+
+### Branch
 
 ### Comments
 
