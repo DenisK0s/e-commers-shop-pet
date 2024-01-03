@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export default function Home() {
-  return <>Hello from the Home page</>;
+  return <div>Home page</div>;
 }

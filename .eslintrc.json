@@ -7,10 +7,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "no-comments"
-  ],
+  "plugins": ["@typescript-eslint", "no-comments"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -20,16 +17,14 @@
     "react/react-in-jsx-scope": "off",
     "linebreak-style": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-console": "error",
+    "no-console": "off",
+    "arrow-body-style": "off",
+    "operator-linebreak": "off",
+    "react/no-unused-prop-types": "off",
     "no-comments/disallowComments": [
       "error",
       {
-        "allow": [
-          "TODO",
-          "FIXME",
-          "NOTE",
-          "DEBUG"
-        ]
+        "allow": ["TODO", "FIXME", "NOTE", "DEBUG"]
       }
     ]
   },

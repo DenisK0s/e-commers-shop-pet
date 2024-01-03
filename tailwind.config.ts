@@ -8,7 +8,21 @@ const config: Config = {
     "./stories/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      padding: {
+        DEFAULT: "2rem",
+        sm: "2rem",
+        md: "4rem",
+        lg: "8rem",
+        xl: "10rem",
+        "2xl": "16rem",
+        "button-primary": "0.625rem 1.625rem",
+      },
+    },
     extend: {
+      padding: {
+        "button-primary": "0.625rem 1.625rem",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -16,6 +30,7 @@ const config: Config = {
       fontFamily: {
         poppings: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
+        spaceGrotesk: ["Space Grotesk", "sans-serif"],
       },
       fontSize: {
         hero: [
