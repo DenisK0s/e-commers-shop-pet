@@ -21,6 +21,7 @@
     "arrow-body-style": "off",
     "operator-linebreak": "off",
     "react/no-unused-prop-types": "off",
+    "object-curly-newline": "off",
     "no-comments/disallowComments": [
       "error",
       {
