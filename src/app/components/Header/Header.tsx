@@ -1,0 +1,53 @@
+"use client";
+
+import React, { ReactElement } from "react";
+import { usePathname } from "next/navigation";
+
+import { NavLabel, NavIconButton } from "./Header.types";
+import MobileHeaderNav from "../MobileHeaderNav/MobileHeaderNav";
+import DesktopHeaderNav from "../DesktopHeaderNav/DesktopHeaderNav";
+
+function Header(): ReactElement {
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const isActiveLink = (linkPathname: string): boolean => linkPathname === pathname;
+
+  const navLabels: NavLabel[] = [
+    { label: "Home", labelIndex: 0, linkPathname: "/" },
+    { label: "Shop", labelIndex: 1, linkPathname: "/shop" },
+    { label: "Product", labelIndex: 2, linkPathname: "/product" },
+    { label: "Contact", labelIndex: 3, linkPathname: "/contact" },
+  ];
+
+  const navIconButtons: NavIconButton[] = [
+    { label: "Search", iconPath: "/icons/search02.svg" },
+    { label: "My account", iconPath: "/icons/user-circle.svg" },
+    { label: "Shopping bag", iconPath: "/icons/shoppingBag.svg" },
+  ];
+
+  const getActiveLink = (label: string): boolean => {
+    const activeLinkIndex = navIconButtons.findIndex((obj: NavIconButton) => obj.label === label);
+
+    return activeLinkIndex === 0 || activeLinkIndex === 1;
+  };
+
+  const toggleMobileMenu = (): void => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  return (
+    <header className="container mx-auto py-4 sm:px-8">
+      <nav className="flex items-center justify-between">
+        {DesktopHeaderNav({
+          navLabels,
+          isMobileMenuOpen,
+          toggleMobileMenu,
+          isActiveLink,
+          getActiveLink,
+          navIconButtons,
+        })}
+        {isMobileMenuOpen && MobileHeaderNav({ isMobileMenuOpen, navLabels, isActiveLink })}
+      </nav>
+    </header>
+  );
+}
+
+export default Header;
