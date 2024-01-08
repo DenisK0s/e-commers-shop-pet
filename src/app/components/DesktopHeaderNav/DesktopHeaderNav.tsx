@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import Link from "next/link";
 import { DesktopHeaderNavProps } from "./DesktopHeaderNav.types";
 import { NavIconButton } from "../Header/Header.types";
-import { IconButton } from "../Buttons/Buttons";
+import IconButton from "../IconButton/IconButton";
 import MainNav from "./MainNav";
 
 function DesktopHeaderNav({

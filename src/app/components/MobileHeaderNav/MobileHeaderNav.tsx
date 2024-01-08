@@ -3,7 +3,7 @@
 import React, { ReactElement } from "react";
 import { MobileHeaderNavProps } from "./MobileHeaderNav.types";
 import SocialMediaNav from "./SocialMediaNav";
-import { PrimaryButton } from "../Buttons";
+import PrimaryButton from "../PrimaryButton";
 import CardWishlistCounter from "./CartWishlistCounter";
 import SearchInput from "../SearchInput/SearchInput";
 import MainNav from "./MainNav";
