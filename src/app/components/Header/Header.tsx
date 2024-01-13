@@ -1,16 +1,18 @@
 "use client";
 
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 import { usePathname } from "next/navigation";
 
 import { NavLabel, NavIconButton } from "./Header.types";
 import MobileHeaderNav from "../MobileHeaderNav/MobileHeaderNav";
-import DesktopHeaderNav from "../DesktopHeaderNav/DesktopHeaderNav";
+import DesktopHeaderNav from "../DesktopHeaderNav";
 
-function Header(): ReactElement {
+function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isActiveLink = (linkPathname: string): boolean => linkPathname === pathname;
+
+  console.log("object");
 
   const navLabels: NavLabel[] = [
     { label: "Home", labelIndex: 0, linkPathname: "/" },
@@ -44,7 +46,9 @@ function Header(): ReactElement {
           getActiveLink,
           navIconButtons,
         })}
+        {/*FIXME: <DesktopHeaderNav /> */}
         {isMobileMenuOpen && MobileHeaderNav({ isMobileMenuOpen, navLabels, isActiveLink })}
+        {/*FIXME: {isMobileMenuOpen && <MobileHeaderNav />} */}
       </nav>
     </header>
   );

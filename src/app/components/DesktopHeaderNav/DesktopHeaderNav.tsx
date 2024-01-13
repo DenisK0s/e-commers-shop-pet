@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import { DesktopHeaderNavProps } from "./DesktopHeaderNav.types";
 import { NavIconButton } from "../Header/Header.types";
@@ -12,7 +12,7 @@ function DesktopHeaderNav({
   isActiveLink,
   getActiveLink,
   navIconButtons,
-}: DesktopHeaderNavProps): ReactElement {
+}: DesktopHeaderNavProps) {
   return (
     <>
       <div className="flex">

@@ -1,3 +1,1 @@
-import DesktopHeaderNav from "./DesktopHeaderNav";
-
-export default DesktopHeaderNav;
+export { default } from "./DesktopHeaderNav";
