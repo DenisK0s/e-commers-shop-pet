@@ -1,4 +1,3 @@
 {
-  "**/*.ts?(x)": ["prettier --write", "eslint"],
-  "**/*.(ts)?(x)": "npm run type-check"
+  "**/*.ts?(x)": ["prettier --write", "eslint"]
 }

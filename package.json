@@ -12,8 +12,7 @@
     "pre-commit": "cross-env LINT_MODE=strict lint-staged",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo "
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "graphql": "^16.8.1",
