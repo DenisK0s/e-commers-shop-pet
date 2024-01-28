@@ -1,2 +1,9 @@
 # Ignore artifacts:
 .vscode
+node_modules
+.next
+.husky
+coverage
+.prettierignore
+.storybook
+.github

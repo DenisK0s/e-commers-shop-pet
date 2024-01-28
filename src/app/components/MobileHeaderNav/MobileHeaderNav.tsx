@@ -1,6 +1,5 @@
 "use client";
 
-import React, { ReactElement } from "react";
 import { MobileHeaderNavProps } from "./MobileHeaderNav.types";
 import SocialMediaNav from "./SocialMediaNav";
 import PrimaryButton from "../PrimaryButton";

@@ -12,8 +12,6 @@ function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isActiveLink = (linkPathname: string): boolean => linkPathname === pathname;
 
-  console.log("object");
-
   const navLabels: NavLabel[] = [
     { label: "Home", labelIndex: 0, linkPathname: "/" },
     { label: "Shop", labelIndex: 1, linkPathname: "/shop" },
