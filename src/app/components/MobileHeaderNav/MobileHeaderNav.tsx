@@ -7,7 +7,7 @@ import CardWishlistCounter from "./CartWishlistCounter";
 import SearchInput from "../SearchInput/SearchInput";
 import MainNav from "./MainNav";
 
-function MobileHeaderNav({ navLabels }: MobileHeaderNavProps) {
+const MobileHeaderNav: React.FC<MobileHeaderNavProps> = ({ navLabels }) => {
   return (
     <div className="block absolute top-10 pt-4 px-6 w-screen left-0 overflow-hidden bg-white">
       <SearchInput />
@@ -19,5 +19,5 @@ function MobileHeaderNav({ navLabels }: MobileHeaderNavProps) {
       </div>
     </div>
   );
-}
+};
 export default MobileHeaderNav;
