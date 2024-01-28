@@ -7,7 +7,7 @@ import { NavLabel, NavIconButton } from "./Header.types";
 import MobileHeaderNav from "../MobileHeaderNav/MobileHeaderNav";
 import DesktopHeaderNav from "../DesktopHeaderNav";
 
-function Header() {
+const Header = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isActiveLink = (linkPathname: string): boolean => linkPathname === pathname;
@@ -50,6 +50,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
