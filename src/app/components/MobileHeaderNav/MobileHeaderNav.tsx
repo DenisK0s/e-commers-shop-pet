@@ -9,7 +9,6 @@ import MainNav from "./MainNav";
 
 function MobileHeaderNav({ navLabels }: MobileHeaderNavProps) {
   console.log("hi");
-
   return (
     <div className="block absolute top-10 pt-4 px-6 w-screen left-0 overflow-hidden bg-white">
       <SearchInput />
