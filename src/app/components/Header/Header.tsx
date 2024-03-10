@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { NavLabel, NavIconButton } from "./Header.types";
@@ -9,9 +9,12 @@ import DesktopHeaderNav from "../DesktopHeaderNav";
 
 const Header = () => {
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const isActiveLink = (linkPathname: string): boolean => linkPathname === pathname;
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const isActiveLink = (linkPathname: string): boolean =>
+    linkPathname === pathname;
+
+  // TODO: move to external file and import straight to the appropriate file
   const navLabels: NavLabel[] = [
     { label: "Home", labelIndex: 0, linkPathname: "/" },
     { label: "Shop", labelIndex: 1, linkPathname: "/shop" },
@@ -19,6 +22,7 @@ const Header = () => {
     { label: "Contact", labelIndex: 3, linkPathname: "/contact" },
   ];
 
+  // TODO: move to external file and import straight to the appropriate file
   const navIconButtons: NavIconButton[] = [
     { label: "Search", iconPath: "/icons/search02.svg" },
     { label: "My account", iconPath: "/icons/user-circle.svg" },
@@ -26,7 +30,9 @@ const Header = () => {
   ];
 
   const getActiveLink = (label: string): boolean => {
-    const activeLinkIndex = navIconButtons.findIndex((obj: NavIconButton) => obj.label === label);
+    const activeLinkIndex = navIconButtons.findIndex(
+      (obj: NavIconButton) => obj.label === label,
+    );
 
     return activeLinkIndex === 0 || activeLinkIndex === 1;
   };
@@ -45,7 +51,8 @@ const Header = () => {
           navIconButtons,
         })}
         {/*FIXME: <DesktopHeaderNav /> */}
-        {isMobileMenuOpen && MobileHeaderNav({ isMobileMenuOpen, navLabels, isActiveLink })}
+        {isMobileMenuOpen &&
+          MobileHeaderNav({ isMobileMenuOpen, navLabels, isActiveLink })}
         {/*FIXME: {isMobileMenuOpen && <MobileHeaderNav />} */}
       </nav>
     </header>

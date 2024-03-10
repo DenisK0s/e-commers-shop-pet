@@ -2,9 +2,9 @@
 
 import { MobileHeaderNavProps } from "./MobileHeaderNav.types";
 import SocialMediaNav from "./SocialMediaNav";
-import PrimaryButton from "../PrimaryButton";
+import { PrimaryButton } from "components/shared/Buttons";
 import CardWishlistCounter from "./CartWishlistCounter";
-import SearchInput from "../SearchInput/SearchInput";
+import { SearchInput } from "components/shared/SearchInput";
 import MainNav from "./MainNav";
 
 const MobileHeaderNav: React.FC<MobileHeaderNavProps> = ({ navLabels }) => {

@@ -1,7 +1,8 @@
-import React, { ReactElement } from "react";
-import { PrimaryButtonProps } from "./PrimaryButton.types";
+type PrimaryButtonProps = {
+  buttonLabel: string;
+};
 
-function PrimaryButton({ buttonLabel }: PrimaryButtonProps): ReactElement {
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({ buttonLabel }) => {
   return (
     <button
       type="button"
@@ -10,6 +11,6 @@ function PrimaryButton({ buttonLabel }: PrimaryButtonProps): ReactElement {
       {buttonLabel}
     </button>
   );
-}
+};
 
 export default PrimaryButton;

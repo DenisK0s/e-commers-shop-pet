@@ -1,6 +1,9 @@
 import { ReactElement } from "react";
 import Image from "next/image";
-import { CardWishlistCounterList, CardWishlistCounterProps } from "./MobileHeaderNav.types";
+import {
+  CardWishlistCounterList,
+  CardWishlistCounterProps,
+} from "./MobileHeaderNav.types";
 
 function CardWishlistCounter({
   cartCounter,
@@ -23,8 +26,11 @@ function CardWishlistCounter({
 
   return (
     <ul>
-      {listItems.map(({ label, iconPath, alt, counter }: CardWishlistCounterList) => (
-        <li className="flex justify-between py-2 border-b border-solid border-neutral-gray">
+      {listItems.map(({ label, iconPath, alt, counter }) => (
+        <li
+          key={label}
+          className="flex justify-between py-2 border-b border-solid border-neutral-gray"
+        >
           <span>{label}</span>
           <div className="flex items-center">
             <div className="size-6  relative">

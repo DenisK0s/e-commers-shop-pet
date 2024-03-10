@@ -1,14 +1,18 @@
 "use client";
 
-import React, { ReactElement } from "react";
 import Image from "next/image";
 
-function SearchInput(): ReactElement {
+const SearchInput = () => {
   return (
     <div className={` flex items-center border rounded  mb-4`}>
       <div className="size-6  ml-4 mt-6 absolute  inset-y-0 flex items-center pl-3 pointer-events-none">
         {" "}
-        <Image src="/icons/search02.svg" alt="Search" layout="fill" objectFit="cover" />
+        <Image
+          src="/icons/search02.svg"
+          alt="Search"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <input
         type="text"
@@ -17,6 +21,6 @@ function SearchInput(): ReactElement {
       />
     </div>
   );
-}
+};
 
 export default SearchInput;

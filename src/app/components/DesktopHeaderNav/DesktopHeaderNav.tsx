@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import Link from "next/link";
 import { DesktopHeaderNavProps } from "./DesktopHeaderNav.types";
 import { NavIconButton } from "../Header/Header.types";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "components/shared/Buttons";
 import MainNav from "./MainNav";
 
 function DesktopHeaderNav({
@@ -34,13 +34,18 @@ function DesktopHeaderNav({
       <MainNav navLabels={navLabels} isActiveLink={isActiveLink} />
       <div className="flex gap-x-4">
         {isMobileMenuOpen ? (
-          <IconButton iconPath="/icons/close.svg" alt="Close" onClick={toggleMobileMenu} />
+          <IconButton
+            iconPath="/icons/close.svg"
+            alt="Close"
+            onClick={toggleMobileMenu}
+          />
         ) : (
           navIconButtons.map(({ label, iconPath }: NavIconButton) => (
             <IconButton
               classNames={getActiveLink(label) ? "hidden md:block" : ""}
               iconPath={iconPath}
               alt={label}
+              key={label}
             />
           ))
         )}
