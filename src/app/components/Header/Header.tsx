@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { NavLabel, NavIconButton } from "./Header.types";
-import MobileHeaderNav from "../MobileHeaderNav/MobileHeaderNav";
-import DesktopHeaderNav from "../DesktopHeaderNav";
+import { IconButton } from "components/shared/Buttons";
+import { headerIconButtons } from "components/Navigation/nav-config";
+import { HeaderIconButton } from "components/Navigation/Navigation.types";
+import { DesktopHeader } from "components/DesktopHeader";
+import { MobileHeaderMenu } from "components/MobileHeader";
 
 const Header = () => {
   const pathname = usePathname();
@@ -14,47 +16,51 @@ const Header = () => {
   const isActiveLink = (linkPathname: string): boolean =>
     linkPathname === pathname;
 
-  // TODO: move to external file and import straight to the appropriate file
-  const navLabels: NavLabel[] = [
-    { label: "Home", labelIndex: 0, linkPathname: "/" },
-    { label: "Shop", labelIndex: 1, linkPathname: "/shop" },
-    { label: "Product", labelIndex: 2, linkPathname: "/product" },
-    { label: "Contact", labelIndex: 3, linkPathname: "/contact" },
-  ];
-
-  // TODO: move to external file and import straight to the appropriate file
-  const navIconButtons: NavIconButton[] = [
-    { label: "Search", iconPath: "/icons/search02.svg" },
-    { label: "My account", iconPath: "/icons/user-circle.svg" },
-    { label: "Shopping bag", iconPath: "/icons/shoppingBag.svg" },
-  ];
-
   const getActiveLink = (label: string): boolean => {
-    const activeLinkIndex = navIconButtons.findIndex(
-      (obj: NavIconButton) => obj.label === label,
+    const activeLinkIndex = headerIconButtons.findIndex(
+      (obj: HeaderIconButton) => obj.label === label,
     );
 
-    return activeLinkIndex === 0 || activeLinkIndex === 1;
+    return activeLinkIndex === 1;
   };
 
   const toggleMobileMenu = (): void => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="container mx-auto py-4 sm:px-8">
-      <nav className="flex items-center justify-between">
-        {DesktopHeaderNav({
-          navLabels,
-          isMobileMenuOpen,
-          toggleMobileMenu,
-          isActiveLink,
-          getActiveLink,
-          navIconButtons,
-        })}
-        {/*FIXME: <DesktopHeaderNav /> */}
-        {isMobileMenuOpen &&
-          MobileHeaderNav({ isMobileMenuOpen, navLabels, isActiveLink })}
-        {/*FIXME: {isMobileMenuOpen && <MobileHeaderNav />} */}
+    <header className="container mx-auto py-4 flex items-center justify-between">
+      <nav className={`flex items-center justify-between md:w-3/4 lg:w-4/6 `}>
+        {
+          <DesktopHeader
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            isActiveLink={isActiveLink}
+          />
+        }
+        {isMobileMenuOpen && (
+          <MobileHeaderMenu
+            isMobile={isMobileMenuOpen}
+            isActiveLink={isActiveLink}
+          />
+        )}
       </nav>
+      <div className="flex gap-x-4">
+        {isMobileMenuOpen ? (
+          <IconButton
+            iconPath="/icons/close.svg"
+            alt="Close"
+            onClick={toggleMobileMenu}
+          />
+        ) : (
+          headerIconButtons.map(({ label, iconPath }: HeaderIconButton) => (
+            <IconButton
+              classNames={getActiveLink(label) ? "hidden md:block" : ""}
+              iconPath={iconPath}
+              alt={label}
+              key={label}
+            />
+          ))
+        )}
+      </div>
     </header>
   );
 };

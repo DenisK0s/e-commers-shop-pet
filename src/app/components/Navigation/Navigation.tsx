@@ -1,14 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 
-import { NavLabel } from "../Header/Header.types";
 import { cn } from "../../lib/utilinies/helpers";
-import { MainNavProps } from "./Navigation.types";
+import { navLabels } from "./nav-config";
+import { NavigationProps, NavLabel } from "./Navigation.types";
 
-const Navigation: React.FC<MainNavProps> = ({ navLabels, isActiveLink }) => {
+const Navigation: React.FC<NavigationProps> = ({ isActiveLink, isMobile }) => {
   return (
-    <ul className={` hidden gap-x-10 py-4  md:flex `}>
+    <ul
+      className={`${isMobile ? "pb-4 mb-12" : "hidden gap-x-10 py-4  md:flex"}`}
+    >
       {navLabels.map(({ label, labelIndex, linkPathname }: NavLabel) => (
-        <li key={labelIndex}>
+        <li
+          key={labelIndex}
+          className={
+            isMobile
+              ? "flex justify-between w-full py-4 border-b border-solid border-neutral-gray "
+              : ""
+          }
+        >
           <Link
             href={linkPathname}
             className={cn(
@@ -20,8 +30,20 @@ const Navigation: React.FC<MainNavProps> = ({ navLabels, isActiveLink }) => {
           >
             {label}
           </Link>
+          {isMobile && (labelIndex === 1 || labelIndex === 2) && (
+            <div className="size-6  relative">
+              <Image
+                src="/icons/chevron-down.svg"
+                alt="Search"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          )}
         </li>
       ))}
     </ul>
   );
 };
+
+export default Navigation;

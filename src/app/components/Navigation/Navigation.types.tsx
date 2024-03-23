@@ -4,15 +4,9 @@ export type NavLabel = {
   labelIndex: number;
 };
 
-export type NavIconButton = {
+export type HeaderIconButton = {
   label: string;
   iconPath: string;
-};
-
-export type MobileHeaderNavProps = {
-  isMobileMenuOpen: boolean;
-  navLabels: NavLabel[];
-  isActiveLink: (linkPathname: string) => boolean;
 };
 
 export type SocialMediaLink = {
@@ -24,24 +18,15 @@ export type CardWishlistCounterList = {
   iconPath: string;
   alt: string;
   label: string;
-  counter: number;
 };
 
-export type CardWishlistCounterProps = {
-  cartCounter: number;
-  wishlistCounter: number;
-};
-
-export type MainNavProps = {
-  navLabels: NavLabel[];
-  isActiveLink: (linkPathname: string) => boolean;
-};
-
-export type DesktopHeaderNavProps = {
-  navLabels: NavLabel[];
+export type DesktopHeaderProps = {
   isMobileMenuOpen: boolean;
   toggleMobileMenu: () => void;
   isActiveLink: (linkPathname: string) => boolean;
-  navIconButtons: NavIconButton[];
-  getActiveLink: (label: string) => boolean;
+};
+
+export type NavigationProps = {
+  isActiveLink: (linkPathname: string) => boolean;
+  isMobile: boolean;
 };

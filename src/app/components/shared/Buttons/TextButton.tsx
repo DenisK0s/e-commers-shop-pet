@@ -1,8 +1,8 @@
-type PrimaryButtonProps = {
+type TextButtonProps = {
   buttonLabel: string;
 };
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ buttonLabel }) => {
+const TextButton: React.FC<TextButtonProps> = ({ buttonLabel }) => {
   return (
     <button
       type="button"
@@ -13,4 +13,4 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({ buttonLabel }) => {
   );
 };
 
-export default PrimaryButton;
+export default TextButton;
