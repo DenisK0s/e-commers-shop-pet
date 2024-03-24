@@ -4,6 +4,7 @@
 2. [Notes Next](#notes-next)
 3. [Folders structure](#folders-structure)
 4. [Rules and conventions](#rules-and-conventions)
+5. [Pull request desription](#pull-request-description)
 
 ---
 
@@ -12,7 +13,7 @@
 ```bash
   npm install
   npm run prepare
-  npx husky add .husky/pre-commit "npm run lint-staged"
+  npx husky add .husky/pre-commit "npm run pre-commit"
 ```
 
 #### recommendet git aliases:
@@ -109,11 +110,13 @@ commit() {
 ### Comments
 
 - accepted comments: "TODO", "FIXME", "NOTE", "DEBUG";
-  any othets trigger errors when committing
+  any other trigger errors when commit
 
 ### Markup and styles
 
 - html & css guidelines - http://sadcitizen.me/code-guide/
+
+### Typescript
 
 ### Commits
 
@@ -126,6 +129,12 @@ commit() {
 
 ```
 
+### Pre-commit hooks
+
+--no-verify - to ignore any pre-commit script and directly commit into git
+
 #### Conventional commits spec. - (https://www.conventionalcommits.org/en/v1.0.0/)
 
 ---
+
+## Pull request desription
